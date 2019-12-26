@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background: #f2f2f2;
+}
+
+a {
+    color: #be3636;
+}
+
+a:hover {
+    color: #d33f3f;
+}
+
+.add-client {
+    display: inline-block;
+    margin-left: 20px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    background-color: #d33b3b;
+}
+
+.add-client:focus {
+    outline: none;
+}
+
+.add-client:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #ff7272;
+    transition: 1s;
+}
+
+.btn-modal {
+    display: inline-block;
+    margin-left: 20px;
+    height: 33px;
+    width: 70px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    background-color: #cf5050;
+}
+
+.btn-modal:focus {
+    outline: none;
+}
+
+.btn-modal:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #ff7272;
+    transition: 1s;
+}
+
+.form-control {
+    outline: none;
+}
+
+
+input:focus {
+    outline: none !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
+
+th {
+    font-family: 'Roboto', sans-serif;
+}
+
+td {
+    font-family: 'Nunito', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #565656;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.col>.btn {
+    background-color: black;
+    border-radius: 6px;
+    color: white;
+    border: none
+}
+
+.col>.btn:hover {
+    transition: 0.3s;
+    color: white;
+    background-color: rgb(44, 44, 44);
+}
+
+.nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #070707;
+}
+
+#profile {
+    border-top-color: #070707;
+}
+
+.senha:hover {
+    cursor: pointer;
+    color: rgb(156, 156, 156);
+}
+
+.confirmsenha:hover {
+    cursor: pointer;
+    color: rgb(156, 156, 156);
+}

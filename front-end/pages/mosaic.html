@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Meus Mosaicos</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <link rel="icon" type="image/png" href="../images/icon-aba.png" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../css/_all-skins.min.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="../css/morris.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="../css/bootstrap3-wysihtml5.min.css">
+
+    <link rel="stylesheet" href="../css/mosaic.css">
+
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans|Raleway|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body class="hold-transition skin-red fixed sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="../images/icon-aba.png" width="200px" height="50px"></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="../images/Logo-Fulltime.png" width="200px" height="50px"></span>
+            </a>
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="https://i.pinimg.com/originals/47/1a/1a/471a1ad342659289433e05a611d206f8.png"
+                                    class="user-image" alt="User Image">
+                                <span id="modal-name" class="hidden-xs"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="https://i.pinimg.com/originals/47/1a/1a/471a1ad342659289433e05a611d206f8.png"
+                                        class="img-circle" alt="User Image">
+
+                                    <p id="submodal-name"></p>
+                                     <p><small id="email_Modal"></small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+
+                                <!-- /.row -->
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                               <a href="profile.html" class="btn btn-default btn-flat"><i style="margin-right: 5px;" class="fa fa-user"></i>Perfil </a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="login.html" class="btn btn-default btn-flat"><img
+                                        src="https://pngimage.net/wp-content/uploads/2018/06/icone-sair-png-6.png"
+                                        width="20px" height="20px"></a>
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../images/perfil.png" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p id="usuario_fullcam" style="line-height: 35px;"></p>
+                    </div>
+                </div>
+
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header">Navegação</li>
+                        <li>
+                          <a href="index.html">
+                            <i class="fa fa-tachometer"></i><span>Minhas câmeras</span>
+                            <span class="pull-right-container"></span>
+                          </a>
+                        </li>
+              
+              
+                        <li id="register_cams">
+                            <a href="registerCam.html">
+                              <i class="fa fa-video-camera"></i><span>Cadastrar câmeras</span>
+                              <span class="pull-right-container">
+                
+                              </span>
+                            </a>
+                        </li>
+              
+                        <li id="register_users">
+                          <a href="registerUsers.html">
+                            <i class="fa fa-users"></i><span>Cadastrar usuários</span>
+                            <span class="pull-right-container">
+              
+                            </span>
+                          </a>
+                        </li>
+              
+                        <li class="active">
+                          <a href="javascript:void(0)">
+                            <i class="fa fa-th-large"></i><span>Meus mosaicos</span>
+                            <span class="pull-right-container">
+              
+                            </span>
+                          </a>
+                        </li>
+                        </ul>
+
+            </section>
+            <!-- /.sidebar -->
+
+        </aside>
+
+
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    <i style="margin-right: 7px;" class="fa fa-video-camera"></i>Câmeras
+                    <small>em Mosaicos</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active" style="color: rgb(195, 63, 63);">Meus Mosaicos</li>
+                </ol>
+            </section>
+
+                <div style="margin-left: 0px; margin-right: 0px; margin-top: 60px;" class="row">
+                    <div class="col-xs-12">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">Cadastros de mosaicos</h3>
+                                            <div style="display: inline;">
+                                                <button
+                                                    style="background-color: rgb(231, 30, 30); margin-left: 10px; border: none; color: white; padding: 4px 8px;"
+                                                    class="btn btn-sm btn-danger cadastrar" data-toggle="modal" data-target="#modalMosaic">
+                                                    <i class="fa fa-th-large"></i>
+                                                </button>
+                                            </div>
+            
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
+                                                <input type="text" name="table_search" id="filterMosaicTable" data-table="table-info"
+                                                    class="form-control pull-right" placeholder="Pesquisar">
+            
+                                                <div class="input-group-btn">
+                                                    <div class="btn btn-default"><img
+                                                            src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+                                                            width="20px" height="20px">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-body table-responsive">
+                                            <table class="sub-table table table-hover" id="mytable">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Nome</th>
+                                                        <th>Capacidade</th>
+                                                        <th>Ações</th>
+                                                    </tr>
+                                                </table>
+                                                <div class="tbl-content">
+                                                        <table class="scroll-table table table-bordered table-hover">
+                                                            <tbody id="table-mosaic">
+                
+                                                            </tbody>
+                                                        </table>
+                                                </div>
+                                            </table>
+                                        </div>
+                                    </div>
+                    </div>
+                </div>
+
+
+                <form id="register-mosaic">
+                        <div class="modal fade" id="modalMosaic" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-th-large"></i> Cadastrar um novo mosaico</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span class="Modalclose" aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                 <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                                    <label for="exampleInputNameCam">Nome do mosaico</label>
+                                            <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-th-large"></i></span>
+                                                    <input type="text" id="name" class="form-control"
+                                                        placeholder="Exemplo.: Meu mosaico." required>
+                                             </div>
+                                        </div>
+
+                                        <div style="margin-top: 20px;" class="col-xs-12">
+                                                <div class="box">
+                                                        <div class="box-tools">
+                                                            <div class="input-group input-group-sm hidden-xs col-xs-12">
+                                                                <input type="text" name="table_search" data-table="table-info"
+                                                                    class="form-control pull-right filterMosaicModal" placeholder="Pesquisar câmera">
+                            
+                                                                <div class="input-group-btn">
+                                                                    <div class="btn btn-default"><img
+                                                                            src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+                                                                            width="20px" height="20px">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                   
+                                                    <div class="box-body table-responsive">
+                                                            <table class="sub-table table table-hover" id="mytable">
+                                                                    <tr>
+                                                                        <th>#</th>
+                                                                        <th>Câmeras</th>
+                                                                        <th>Selecionar</th>
+                                                                    </tr>
+                                                                </table>
+                                                                <div class="tbl-content">
+                                                                        <table class="scroll-table table table-bordered table-hover">
+                                                                            <tbody id="table-selectcams">
+                                
+                                                                            </tbody>
+                                                                        </table>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                    </div>
+
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Fechar</button>
+                                        <button id="btn-save" type="submit" class="btn-modal">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form id="update-mosaic">
+                            <div class="modal fade" id="modalMosaicUpdate" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-edit"></i> Editar mosaico</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span class="Modalclose" aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                     <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                        <label for="exampleInputNameCam">Nome do mosaico</label>
+                                                <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-th-large"></i></span>
+                                                        <input type="text" id="name-edit" class="form-control"
+                                                            placeholder="Exemplo.: Meu mosaico." required>
+                                                 </div>
+                                            </div>
+    
+                                            <div style="margin-top: 20px;" class="col-xs-12">
+                                                    <div class="box">
+                                                            <div class="box-tools">
+                                                                <div class="input-group input-group-sm hidden-xs col-xs-12">
+                                                                    <input type="text" name="table_search" data-table="table-info"
+                                                                        class="form-control pull-right filterMosaicModal" placeholder="Pesquisar câmera">
+                                
+                                                                    <div class="input-group-btn">
+                                                                        <div class="btn btn-default"><img
+                                                                                src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+                                                                                width="20px" height="20px">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                       
+                                                        <div class="box-body table-responsive">
+                                                                <table class="sub-table table table-hover" id="mytableUpdate">
+                                                                        <tr>
+                                                                            <th>#</th>
+                                                                            <th>Câmeras</th>
+                                                                            <th>Selecionar</th>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <div class="tbl-content">
+                                                                            <table class="scroll-table table table-bordered table-hover">
+                                                                                <tbody id="table-selectcamsUpdate">
+                                    
+                                                                                </tbody>
+                                                                            </table>
+                                                                    </div>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                        </div>
+    
+                                        </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Fechar</button>
+                                            <button id="btn-save" type="submit" class="btn-modal">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form id="delete-mosaic" id="add-row-form">
+                        <div class="modal fade" id="modalMosaicDelete" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-circle"></i> Deletar</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong>Tem certeza que deseja deletar o mosaico dessa fileira?</strong>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="hidden" name="cliente_id" class="form-control cliente_id2"
+                                            required>
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn-modal">Deletar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+            </div>
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                </div>
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+
+        <!-- ./wrapper -->
+
+        <!-- jQuery 3 -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../src/controller/permissions/user.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="../js/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- Slimscroll -->
+        <script src="../js/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../js/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../js/adminlte.min.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="../js/dashboard.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../js/demo.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+        <script src="../src/controller/user/reqUser.js"></script>
+        <script src="../src/controller/mosaic/registerMosaic.js"></script>
+        <script src="../src/controller/mosaic/listmosaicTable.js"></script>
+        <script src="../src/controller/mosaic/storageMosaic.js"></script>
+        <script src="../src/controller/mosaic/updateMosaic.js"></script>
+        <script src="../src/controller/mosaic/deleteMosaic.js"></script>
+        <script src="../src/model/filter/filterMosaicTable.js"></script>
+        <script src="../src/model/filter/filterCamMosaic.js"></script>
+        <script src="../src/controller/mosaic/listcamsMosaic.js"></script>
+
+</body>
+
+</html>
+</body>
+
+</html>

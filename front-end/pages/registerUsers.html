@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Usuários</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <link rel="icon" type="image/png" href="../images/icon-aba.png" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../css/_all-skins.min.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans|Raleway|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="styslesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<style>
+ .tbl-content{
+  height:300px;
+  overflow-y: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.scroll-table{
+  width:100%;
+}
+
+.sub-table{
+  width: 100%;
+}
+
+canvas{
+    background-color: white;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+</style>
+
+<body class="hold-transition skin-red fixed sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="../images/icon-aba.png" width="200px" height="50px"></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="../images/Logo-Fulltime.png" width="200px" height="50px"></span>
+            </a>
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="https://i.pinimg.com/originals/47/1a/1a/471a1ad342659289433e05a611d206f8.png"
+                                    class="user-image" alt="User Image">
+                                <span id="modal-name" class="hidden-xs"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="https://i.pinimg.com/originals/47/1a/1a/471a1ad342659289433e05a611d206f8.png"
+                                        class="img-circle" alt="User Image">
+
+                                    <p id="submodal-name"></p>
+                                    <p><small id="email_Modal"></small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+
+                                <!-- /.row -->
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="profile.html" class="btn btn-default btn-flat"><i style="margin-right: 5px;"
+                                        class="fa fa-user"></i>Perfil </a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="login.html" class="btn btn-default btn-flat"><img
+                                        src="https://pngimage.net/wp-content/uploads/2018/06/icone-sair-png-6.png"
+                                        width="20px" height="20px"></a>
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../images/perfil.png" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p id="usuario_fullcam" style="line-height: 35px;"></p>
+                    </div>
+                </div>
+
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header">Navegação</li>
+                        <li>
+                          <a href="index.html">
+                            <i class="fa fa-tachometer"></i><span>Minhas câmeras</span>
+                            <span class="pull-right-container"></span>
+                          </a>
+                        </li>
+              
+                        <li id="register_cams">
+                            <a href="registerCam.html">
+                              <i class="fa fa-video-camera"></i><span>Cadastrar câmeras</span>
+                              <span class="pull-right-container">
+                
+                              </span>
+                            </a>
+                        </li>
+              
+                        <li class="active" id="register_users">
+                          <a href="registerUsers.html">
+                            <i class="fa fa-users"></i><span>Cadastrar usuários</span>
+                            <span class="pull-right-container">
+              
+                            </span>
+                          </a>
+                        </li>
+              
+                        <li>
+                          <a href="mosaic.html">
+                            <i class="fa fa-th-large"></i><span>Meus mosaicos</span>
+                            <span class="pull-right-container">
+              
+                            </span>
+                          </a>
+                        </li>
+                    </ul>
+
+            </section>
+            <!-- /.sidebar -->
+
+        </aside>
+
+
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    <i style="margin-right: 7px;" class="fa fa-users"></i>Cadastrar
+                    <small>usuários</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active" style="color: rgb(195, 63, 63);">Cadastrar usuários</li>
+                </ol>
+            </section>
+
+            <div style="margin-left: 0px; margin-right: 0px; margin-top: 60px;" class="row">
+
+                <!-- widgets -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div style="border-radius: 10px;" class="info-box">
+                        <span style="border-radius: 6px; background-color:rgb(248, 62, 62);" class="info-box-icon"><i
+                                style="color: white;" class="fa fa-user"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">usuários</span>
+                            <span id="users-totais-box" class="info-box-number">0</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <!-- /.col -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div style="border-radius: 10px;" class="info-box">
+                        <span style="border-radius: 6px; background-color:rgb(138, 138, 138);" class="info-box-icon"><i
+                                style="color: white;" class="fa fa-history"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">registrados a cada 1 hora</span>
+                            <span id="cad_hour" class="info-box-number">0</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div style="border-radius: 10px;" class="info-box">
+                        <span style="border-radius: 6px; background-color:rgb(248, 62, 62);" class="info-box-icon"><i
+                                style="color: white;" class="fa fa-video-camera"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total de Câmeras</span>
+                            <span id="cams-totais-box" class="info-box-number">0</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                     <div style="margin-top: 50px;" class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Cadastros de usuários</h3>
+                                <div style="display: inline;">
+                                        <button
+                                            style="background-color: rgb(231, 30, 30); margin-left: 10px; border: none; color: white; padding: 4px 8px;"
+                                            class="btn btn-sm btn-danger cadastrar" data-toggle="modal" data-target="#myModalAdd">
+                                            <i class="fa fa-user-plus"></i>
+                                        </button>
+                                </div>
+
+                            <div class="box-tools">
+                                <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
+                                    <input type="text" name="table_search" id="filterUser" data-table="table-info"
+                                        class="form-control pull-right" placeholder="Pesquisar">
+
+                                    <div class="input-group-btn">
+                                        <div class="btn btn-default"><img
+                                                src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+                                                width="20px" height="20px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body table-responsive">
+                                <table class="sub-table table table-hover" id="mytable">
+                                        <tr>
+                                            <th><i class="fa fa-user"></i> Nome</th>
+                                            <th><i class="fa fa-lock"></i> Login</th>
+                                            <th><i class="fa fa-envelope"></i> Email</th>
+                                            <th><i class="fa fa-user-o"></i> CPF</th>
+                                            <th><i class="fa fa-calendar-o"></i> Data</th>
+                                            <th><i class="fa fa-phone"></i> Tel</th>
+                                            <th><i class="fa fa-map-marker"></i> Localização</th>
+                                        </tr>
+                                    </table>
+                                    <div class="tbl-content">
+                                            <table class="scroll-table table table-bordered table-hover">
+                                                <tbody id="table-user">
+    
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div style="margin: 2px;" class="row"> 
+                                <div class="graph col-lg-6">
+                                        <canvas id="myChart"></canvas>
+                                </div>
+                                <div class="graph col-lg-6">
+                                        <canvas id="myChart2"></canvas>
+                                </div>
+                        </div><div style="margin: 20px;"></div>
+
+                    <form id="register-user">
+                        <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-user"></i> Cadastrar novo usuário</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="form-group">
+                                                    <label for="exampleInputEstado">Nome</label>
+                                            <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+                                                    <input type="text" id="nome" class="form-control"
+                                                        placeholder="Nome" required>
+                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="exampleInputEstado">Login de usuário</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+                                                <input type="text" id="login" class="form-control"
+                                                    placeholder="Login de usuário" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEstado">E-mail</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                                <input type="email" id="email" class="form-control"
+                                                    placeholder="@E-mail" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="exampleInputEstado">Senha</label>
+                                                <div class="input-group">
+                                                    <span class="senha input-group-addon"><i class="fa fa-eye"></i></span>
+                                                    <input type="password" id="senha" class="form-control usuario_senha"
+                                                        placeholder="Senha de usuário" required>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEstado">CPF</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                                                <input type="text" id="cpf"
+                                                    class="form-control" placeholder="CPF" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-xs-6">
+                                                    <label for="exampleInputTel">Telefone</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                                    <input type="text" id="tel" class="form-control"
+                                                        placeholder="(00)0000-0000">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-xs-6">
+                                                    <label for="exampleInputEstado">Estado</label>
+                                                    <div class="input-group">
+                                                        <select class="selectpicker cliente_sexo" id="estado"
+                                                            data-header="Selecione uma das opções">
+                                                            <optgroup label="Estados">
+                                                                <option style="display: none;" disabled selected value></option>
+                                                                <option data-icon="fa fa-map-marker">Acre (AC)</option>
+                                                                <option data-icon="fa fa-map-marker">Alagoas (AL)</option>
+                                                                <option data-icon="fa fa-map-marker">Amapá (AP)</option>
+                                                                <option data-icon="fa fa-map-marker">Amazonas (AM)</option>
+                                                                <option data-icon="fa fa-map-marker">Bahia (BA)</option>
+                                                                <option data-icon="fa fa-map-marker">Ceará (CE)</option>
+                                                                <option data-icon="fa fa-map-marker">Distrito Federal (DF)</option>
+                                                                <option data-icon="fa fa-map-marker">Espírito Santo (ES)</option>
+                                                                <option data-icon="fa fa-map-marker">Goiás (GO)</option>
+                                                                <option data-icon="fa fa-map-marker">Maranhão (MA)</option>
+                                                                <option data-icon="fa fa-map-marker">Mato Grosso (MT)</option>
+                                                                <option data-icon="fa fa-map-marker">Mato Grosso do Sul(MS)</option>
+                                                                <option data-icon="fa fa-map-marker">Minas Gerais (MG)</option>
+                                                                <option data-icon="fa fa-map-marker">Pará (PA)</option>
+                                                                <option data-icon="fa fa-map-marker">Paraná (PR)</option>
+                                                                <option data-icon="fa fa-map-marker">Pernambuco (PE)</option>
+                                                                <option data-icon="fa fa-map-marker">Piauí (PI)</option>
+                                                                <option data-icon="fa fa-map-marker">Rio de Janeiro (RJ)</option>
+                                                                <option data-icon="fa fa-map-marker">Rio Grande do Norte (RN)</option>
+                                                                <option data-icon="fa fa-map-marker">Rio Grande do Sul (RS)</option>
+                                                                <option data-icon="fa fa-map-marker">Rondônia (RO)</option>
+                                                                <option data-icon="fa fa-map-marker">Roraima (RR)</option>
+                                                                <option data-icon="fa fa-map-marker">Santa Catarina (SC)</option>
+                                                                <option data-icon="fa fa-map-marker">São Paulo (SP)</option>
+                                                                <option data-icon="fa fa-map-marker">Sergipe (SE)</option>
+                                                                <option data-icon="fa fa-map-marker">Tocantins (TO)</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>                             
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Fechar</button>
+                                        <button id="btn-save" type="submit" class="btn-modal">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Update -->
+
+                    <form id="update-user">
+                        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-edit"></i> Editar usuário</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <div class="form-group">
+                                                    <label for="exampleInputEstado">Nome</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+                                                    <input type="text" id="nome-edit" class="form-control"
+                                                        placeholder="Nome" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label for="exampleInputEstado">Login de usuário</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+                                                    <input type="text" id="login-edit" class="form-control"
+                                                        placeholder="Login de usuário" required>
+                                                </div>
+                                            </div>
+    
+                                            <div class="form-group">
+                                                <label for="exampleInputEstado">E-mail</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                                    <input type="email" id="email-edit" class="form-control"
+                                                        placeholder="@E-mail" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label for="exampleInputEstado">Senha</label>
+                                                    <div class="input-group">
+                                                        <span class="senha input-group-addon"><i class="fa fa-eye"></i></span>
+                                                        <input type="password" id="senha-edit" class="form-control usuario_senha"
+                                                            placeholder="Senha de usuário" required>
+                                                    </div>
+                                            </div>
+    
+                                            <div class="form-group">
+                                                <label for="exampleInputEstado">CPF</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                                                    <input type="text" id="cpf-edit"
+                                                        class="form-control" placeholder="CPF" required>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row">
+                                                <div class="form-group col-xs-6">
+                                                        <label for="exampleInputTel">Telefone</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                                        <input type="text" id="tel-edit" class="form-control"
+                                                            placeholder="(00)0000-0000">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="form-group col-xs-6">
+                                                        <label for="exampleInputEstado">Estado</label>
+                                                        <div class="input-group">
+                                                            <select class="selectpicker cliente_sexo" id="estado-edit"
+                                                                data-header="Selecione uma das opções">
+                                                                <optgroup label="Estados">
+                                                                    <option style="display: none;" disabled selected value></option>
+                                                                    <option data-icon="fa fa-map-marker">Acre (AC)</option>
+                                                                    <option data-icon="fa fa-map-marker">Alagoas (AL)</option>
+                                                                    <option data-icon="fa fa-map-marker">Amapá (AP)</option>
+                                                                    <option data-icon="fa fa-map-marker">Amazonas (AM)</option>
+                                                                    <option data-icon="fa fa-map-marker">Bahia (BA)</option>
+                                                                    <option data-icon="fa fa-map-marker">Ceará (CE)</option>
+                                                                    <option data-icon="fa fa-map-marker">Distrito Federal (DF)</option>
+                                                                    <option data-icon="fa fa-map-marker">Espírito Santo (ES)</option>
+                                                                    <option data-icon="fa fa-map-marker">Goiás (GO)</option>
+                                                                    <option data-icon="fa fa-map-marker">Maranhão (MA)</option>
+                                                                    <option data-icon="fa fa-map-marker">Mato Grosso (MT)</option>
+                                                                    <option data-icon="fa fa-map-marker">Mato Grosso do Sul(MS)</option>
+                                                                    <option data-icon="fa fa-map-marker">Minas Gerais (MG)</option>
+                                                                    <option data-icon="fa fa-map-marker">Pará (PA)</option>
+                                                                    <option data-icon="fa fa-map-marker">Paraná (PR)</option>
+                                                                    <option data-icon="fa fa-map-marker">Pernambuco (PE)</option>
+                                                                    <option data-icon="fa fa-map-marker">Piauí (PI)</option>
+                                                                    <option data-icon="fa fa-map-marker">Rio de Janeiro (RJ)</option>
+                                                                    <option data-icon="fa fa-map-marker">Rio Grande do Norte (RN)</option>
+                                                                    <option data-icon="fa fa-map-marker">Rio Grande do Sul (RS)</option>
+                                                                    <option data-icon="fa fa-map-marker">Rondônia (RO)</option>
+                                                                    <option data-icon="fa fa-map-marker">Roraima (RR)</option>
+                                                                    <option data-icon="fa fa-map-marker">Santa Catarina (SC)</option>
+                                                                    <option data-icon="fa fa-map-marker">São Paulo (SP)</option>
+                                                                    <option data-icon="fa fa-map-marker">Sergipe (SE)</option>
+                                                                    <option data-icon="fa fa-map-marker">Tocantins (TO)</option>
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                    </div>                             
+    
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="hidden" name="id" class="cliente_id">
+                                        <button type="modal" class="btn btn-default"
+                                            data-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn-modal">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                    <!-- Delete Product Modal-->
+                    <form id="delete-user" id="add-row-form">
+                        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-circle"></i> Deletar</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <strong>Tem certeza que deseja deletar o usuário dessa fileira?</strong>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="hidden" name="cliente_id" class="form-control cliente_id2"
+                                            required>
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn-modal">Deletar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane" id="control-sidebar-home-tab">
+            </div>
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+
+    <!-- ./wrapper -->
+    <script src="../src/controller/permissions/user.js"></script>
+    <script src="../src/model/filter/filterUserTable.js"></script>
+    <!-- jQuery 3 -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="../js/fastclick.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="../js/jquery-ui.min.js"></script>
+    <!-- mask -->
+    <script src="../js/jquery.mask.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../js/demo.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <script src="../src/model/mask/mask.js"></script>
+    <script src="../src/controller/user/reqUser.js"></script>
+    <script src="../src/controller/user/registerUser.js"></script>
+    <script src="../src/controller/user/listusertable.js"></script>
+    <script src="../src/controller/user/updateUser.js"></script>
+    <script src="../src/controller/user/deleteUser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../src/model/counter/info-box.js"></script>
+    <script>
+
+      let mediaHour = localStorage.getItem('MediaHour');
+      let mediaDay = localStorage.getItem('MediaDay');
+
+      let ctx = document.getElementById('myChart').getContext('2d');
+      let ctx2 = document.getElementById('myChart2').getContext('2d');
+
+      let chart = new Chart(ctx, {
+            
+            type: 'line',
+
+            
+            data: {
+                labels: ['', 'Lucros por hora'],
+                datasets: [{
+                    label: ' $ Hour',
+                    backgroundColor: '#3B3B98',
+                    borderColor: '#6c5ce7',
+                    data: ['0', mediaHour]
+                }]
+            },
+
+           
+            options: {}
+        });
+
+        let chart2 = new Chart(ctx2, {
+            
+            type: 'line',
+
+            
+            data: {
+                labels: ['Renda total',''],
+                datasets: [{
+                    label: ' $ Total',
+                    backgroundColor: '#4b4b4b',
+                    borderColor: '#dfe6e9',
+                    data: [mediaDay, '0']
+                }]
+            },
+
+           
+            options: {}
+        });
+
+    </script>
+</body>
+</html>
